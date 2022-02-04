@@ -17,6 +17,7 @@ parameters:
 # specific job defined above, in the jobs section.
 workflows:
   verify-setup:
+    when: true
     jobs:
       - run:
           name: Verifying
