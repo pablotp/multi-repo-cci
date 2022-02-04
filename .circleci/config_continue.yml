@@ -21,7 +21,7 @@ workflows:
     jobs:
       - run:
           name: Verifying
-          command: echo "<< pipeline.parameters.very-secret-key >>"
+          command: echo "Soooommmeeeething    << pipeline.parameters.very-secret-key >>"
 
   # when pipeline parameter, run-build-service-1-job is true, the
   # build-service-1 job is triggered.
