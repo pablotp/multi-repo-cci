@@ -11,6 +11,7 @@ parameters:
     default: false
   very-secret-key:
     type: string
+    default: "<not set>"
 
 # here we specify our workflows, most of which are conditionally
 # executed based upon pipeline parameter values. Each workflow calls a
