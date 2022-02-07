@@ -21,9 +21,10 @@ parameters:
 # specific job defined above, in the jobs section.
 workflows:
   verify-setup:
-    when: 
-      not:
-        - equal: [null, << pipeline.parameters.very-secret-key >>]
+    when:
+      and: 
+        - not:
+          - equal: [null, << pipeline.parameters.very-secret-key >>]
     
     jobs:
       - verify
