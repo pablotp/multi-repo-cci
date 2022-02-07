@@ -24,7 +24,7 @@ workflows:
     when:
       and:
         - not:
-            equal: [ 1, 2 ]
+            equal: [ null, << pipeline.parameters.working-directory >> ]
 #        - equal: [ 1, 1]
     jobs:
       - verify
