@@ -18,8 +18,13 @@ parameters:
 # specific job defined above, in the jobs section.
 workflows:
   verify-setup:
-    when: true
     jobs:
+      - verify
+
+jobs:
+  verify:
+    steps:
+      - checkout
       - run:
           name: Verifying
           command: echo "Soooommmeeeething    << pipeline.parameters.very-secret-key >>"
