@@ -12,17 +12,22 @@ parameters:
   very-secret-key:
     type: string
     default: "<not set>"
+  working-directory:
+    type: string
+    default: "<not set>"
 
 # here we specify our workflows, most of which are conditionally
 # executed based upon pipeline parameter values. Each workflow calls a
 # specific job defined above, in the jobs section.
 workflows:
   verify-setup:
+    when: << pipeline.parameters.very-secret-key >>
     jobs:
       - verify
 
 jobs:
   verify:
+    working-directory: "~/<< pipeline.parameters.working-directory >>"
     docker:
       - image: cimg/base:2022.01
     steps:
@@ -30,6 +35,7 @@ jobs:
       - run:
           name: Verifying
           command: echo "Soooommmeeeething    << pipeline.parameters.very-secret-key >>"
+      - run: pwd
 
   # when pipeline parameter, run-build-service-1-job is true, the
   # build-service-1 job is triggered.
