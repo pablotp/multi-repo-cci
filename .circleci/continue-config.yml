@@ -23,6 +23,8 @@ workflows:
 
 jobs:
   verify:
+    docker:
+      - image: cimg/base
     steps:
       - checkout
       - run:
