@@ -11,10 +11,10 @@ parameters:
     default: false
   very-secret-key:
     type: string
-    default: "<not set>"
+    default: "null"
   working-directory:
     type: string
-    default: "<not set>"
+    default: "null"
 
 # here we specify our workflows, most of which are conditionally
 # executed based upon pipeline parameter values. Each workflow calls a
@@ -24,7 +24,7 @@ workflows:
     when: 
       condition:
         not:
-          equal: ["<not set>", << pipeline.parameters.very-secret-key >>]
+          equal: [null, << pipeline.parameters.very-secret-key >>]
     
     jobs:
       - verify
