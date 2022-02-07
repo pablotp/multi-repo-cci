@@ -39,5 +39,7 @@ jobs:
       - checkout
       - run:
           name: Verifying
-          command: echo "Soooommmeeeething    << pipeline.parameters.very-secret-key >>"
-      - run: pwd
+          command: echo "Some command with the correct variable << pipeline.parameters.very-secret-key >>"
+      - run:
+          name: Something inside the right folder/project
+          command: pwd
