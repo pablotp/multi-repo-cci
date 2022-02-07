@@ -20,11 +20,11 @@ workflows:
           # line:
           # <regex path-to-test> <parameter-to-set> <value-of-pipeline-parameter>
           mapping: |
-            service1/.* very-secret-key "key1"
-            service2/.* very-secret-key "key2"
+            service1/* very-secret-key "key1"
+            service2/* very-secret-key "key2"
           base-revision: main
           # this is the path of the configuration we should trigger once
           # path filtering and pipeline parameter value updates are
           # complete. In this case, we are using the parent dynamic
           # configuration itself.
-          config-path: .circleci/config_continue.yml
+          config-path: .circleci/continue-config.yml
