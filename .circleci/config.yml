@@ -13,7 +13,7 @@ workflows:
           mapping: |
             service1/.* very-secret-key "ENV_VAR_1"
             service1/.* working-directory "service1"
-            service2/.* very-secret-key "ENV_VAR_1"
+            service2/.* very-secret-key "ENV_VAR_2"
             service2/.* working-directory "service2"
           base-revision: main
           config-path: .circleci/continue-config.yml
